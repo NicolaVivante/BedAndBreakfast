@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&B</title>
+</head>
+
+<body>
+    <form method="POST" action="login.php">
+        <h3>Login</h3>
+        email: <input type="email" name="userEmail"><br>
+        password: <input type="password" name="userPassword"><br>
+        <input type="submit">
+    </form>
+
+    <br>
+    <!-- controlli sul corretto inserimento di mail e password saranno effettuati dal lato client -->
+    <form method="POST" action="register.php">
+        <h3>Register</h3>
+        username: <input type="text" name="userName"><br>
+        email: <input type="email" name="userEmail"><br>
+        confirm email: <input type="email" name="userEmailCheck"><br>
+        password: <input type="password" name="userPassword"><br>
+        confirm password: <input type="password" name="userPasswordCheck"><br>
+        <input type="submit">
+    </form>
+</body>
+
+</html>
