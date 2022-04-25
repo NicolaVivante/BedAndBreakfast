@@ -1,0 +1,34 @@
+CREATE DATABASE bed_and_breakfast_5ci;
+CREATE TABLE utenti (
+	nome_utente TEXT NOT NULL,
+    email_utente VARCHAR(320) NOT NULL,
+    password_utente TEXT NOT NULL,
+    admin BOOLEAN NOT NULL,
+    PRIMARY KEY(email_utente)
+);
+
+CREATE TABLE camere (
+	numero_camera INT(4) NOT NULL,
+    numero_letti_singoli int(2) NOT NULL,
+    numero_letti_matrimoniali int(2) NOT NULL,
+    prezzo DECIMAL(10, 2) NOT NULL,
+    PRIMARY KEY(numero_camera)
+);
+
+CREATE TABLE prenotazioni (
+	id_prenotazione INT(11) AUTO_INCREMENT,
+    data_inizio DATE NOT NULL,
+    data_fine DATE NOT NULL,
+    colazione BOOLEAN NOT NULL,
+    email_utente VARCHAR(320) NOT NULL,
+    PRIMARY KEY(id_prenotazione),
+    FOREIGN KEY(email_utente) REFERENCES utenti(email_utente)
+);
+
+CREATE TABLE camere_prenotate (
+	id_prenotazione INT(11) AUTO_INCREMENT,
+    numero_camera INT(4) NOT NULL,
+    PRIMARY KEY(id_prenotazione, numero_camera),
+    FOREIGN KEY(numero_camera) REFERENCES camere(numero_camera),
+    FOREIGN KEY(id_prenotazione) REFERENCES prenotazioni(id_prenotazione)
+);

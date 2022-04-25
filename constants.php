@@ -42,6 +42,8 @@ define("NEW_BOOKING_PAGE", "newBooking.html");
 define("ADD_BOOKING_PAGE", "addBooking.php");
 define("REMOVE_BOOKING_PAGE", "removeBooking.php");
 define("VIEW_BOOKINGS_PAGE", "viewBookings.php");
+define("VIEW_ALL_BOOKINGS_PAGE", "viewAllBookings.php");
+define("ADD_ROOM_PAGE", "newRoom.html");
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

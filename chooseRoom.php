@@ -10,6 +10,10 @@ $startDate = $_POST['startDate'];
 $endDate = $_POST['endDate'];
 $breakfast = isset($_POST['breakfast']);
 
+echo "<form action='" . HOME_PAGE . "'>
+<button type='submit'>Back to the home page</button>
+</form>";
+
 echo "Rooms available from \"$startDate\" to \"$endDate\"<br>";
 
 $query = "SELECT " . ROOMS_TABLE . ".* FROM " . ROOMS_TABLE . "

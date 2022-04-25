@@ -11,8 +11,8 @@
 <body>
     <form method="POST" action="login.php">
         <h3>Login</h3>
-        email: <input type="email" name="userEmail"><br>
-        password: <input type="password" name="userPassword"><br>
+        email: <input type="email" name="userEmail" required><br>
+        password: <input type="password" name="userPassword" required><br>
         <input type="submit">
     </form>
 
@@ -20,11 +20,11 @@
     <!-- controlli sul corretto inserimento di mail e password saranno effettuati dal lato client -->
     <form method="POST" action="register.php">
         <h3>Register</h3>
-        username: <input type="text" name="userName"><br>
-        email: <input type="email" name="userEmail"><br>
-        confirm email: <input type="email" name="userEmailCheck"><br>
-        password: <input type="password" name="userPassword"><br>
-        confirm password: <input type="password" name="userPasswordCheck"><br>
+        username: <input type="text" name="userName" required><br>
+        email: <input type="email" name="userEmail" required><br>
+        confirm email: <input type="email" name="userEmailCheck" required><br>
+        password: <input type="password" name="userPassword" required><br>
+        confirm password: <input type="password" name="userPasswordCheck" required><br>
         <input type="submit">
     </form>
 </body>

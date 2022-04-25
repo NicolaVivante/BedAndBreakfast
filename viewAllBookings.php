@@ -2,7 +2,7 @@
 
 include_once("constants.php");
 
-$email = $_SESSION[USER_EMAIL];
+$adminEmail = $_SESSION[USER_EMAIL];
 
 $connection = new mysqli(DB_URL, DB_USER, DB_PASSWORD, DB_NAME);
 if ($connection->connect_error) {
@@ -11,8 +11,8 @@ if ($connection->connect_error) {
 
 $query = "SELECT " . BOOKINGS_TABLE . ".*, " . ROOM_NUMBER . " FROM " . BOOKINGS_TABLE .
     " JOIN " . BOOKED_ROOMS_TABLE . " USING(" . BOOKING_ID .
-    ") WHERE " . BOOKINGS_TABLE . "." . BOOKING_EMAIL . " = '$email';";
-//echo $query;
+    ");";
+// echo $query;
 $result = $connection->query($query);
 
 if ($result && $result->num_rows != 0) {
@@ -33,16 +33,19 @@ if ($result && $result->num_rows != 0) {
         $endDate = $row[BOOKING_END_DATE];
         $breakfast = ($row[BOOKING_HAS_BREAKFAST]) ? "yes" : "no";
         $roomNumber = $row[ROOM_NUMBER];
+        $email = $row[BOOKING_EMAIL];
 
         echo "<tr>";
         echo "<td>$bookingId</td>";
         echo "<td>$startDate</td>";
         echo "<td>$endDate</td>";
         echo "<td>$breakfast</td>";
-        echo "<td><form method='POST' action='" . REMOVE_BOOKING_PAGE . "'>
+        if ($email == $adminEmail) {
+            echo "<td><form method='POST' action='" . REMOVE_BOOKING_PAGE . "'>
                 <button type='submit' name='bookingId' value='$bookingId'>remove</button>
                 </form></td>";
-        echo "</tr>";
+            echo "</tr>";
+        }
     }
 } else {
     echo "No bookings available";

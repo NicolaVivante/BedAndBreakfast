@@ -12,10 +12,11 @@
     <form action='home.php'>
         <button type='submit'>Back to the home page</button>
     </form>
-    <form method="POST" action="chooseRoom.php">
-        start date: <input type="date" name="startDate" required><br>
-        end date: <input type="date" name="endDate" required><br>
-        breakfast: <input type="checkbox" name="breakfast" required><br>
+    <form method="POST" action="addRoom.php">
+        room number: <input type="number" name="roomNumber" required><br>
+        single beds number: <input type="number" name="singleBedsNumber" required><br>
+        double beds number: <input type="number" name="doubleBedsNumber" required><br>
+        price: <input type="number" name="price" required><br>
         <input type="submit">
     </form>
 </body>
