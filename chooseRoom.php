@@ -18,8 +18,7 @@ echo "Rooms available from \"$startDate\" to \"$endDate\"<br>";
 
 $query = "SELECT " . ROOMS_TABLE . ".* FROM " . ROOMS_TABLE . "
 WHERE " . ROOMS_TABLE . "." . ROOM_NUMBER . " NOT IN
-(SELECT DISTINCT " . ROOMS_TABLE . "." . ROOM_NUMBER . " FROM " . ROOMS_TABLE . "
-JOIN " . BOOKED_ROOMS_TABLE . " USING(" . ROOM_NUMBER . ")
+(SELECT DISTINCT " . BOOKED_ROOMS_TABLE . "." . ROOM_NUMBER . " FROM " . BOOKED_ROOMS_TABLE . "
 JOIN " . BOOKINGS_TABLE . " USING(" . BOOKING_ID . ")
 WHERE " . BOOKINGS_TABLE . "." . BOOKING_START_DATE . " <= '$endDate'
 AND " . BOOKINGS_TABLE . "." . BOOKING_END_DATE . " >= '$startDate');";

@@ -13,7 +13,7 @@ echo "<form action='" . INDEX_PAGE . "'>
 echo "Welcome " . $_SESSION[USER_NAME] . "<br>";
 
 echo "<form action='" . NEW_BOOKING_PAGE . "'><button type='submit'>Book a room</button></form>";
-echo "<form action='" . VIEW_BOOKINGS_PAGE . "'><button type='submit'>View all your bookings</button></form>";
+echo "<form action='" . VIEW_BOOKINGS_PAGE . "'><button type='submit'>View your bookings</button></form>";
 
 if ($_SESSION[IS_ADMIN]) {
     echo "<form action='" . VIEW_ALL_BOOKINGS_PAGE . "'><button type='submit'>View all bookings</button></form>";

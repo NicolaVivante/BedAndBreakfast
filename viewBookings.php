@@ -25,6 +25,7 @@ if ($result && $result->num_rows != 0) {
     echo "<th>end date</th>";
     echo "<th>breakfast included</th>";
     echo "<th>room number</th>";
+    echo "<th>remove</th>";
     echo "</tr>";
 
     while ($row = $result->fetch_array()) {
@@ -39,6 +40,7 @@ if ($result && $result->num_rows != 0) {
         echo "<td>$startDate</td>";
         echo "<td>$endDate</td>";
         echo "<td>$breakfast</td>";
+        echo "<td>$roomNumber</td>";
         echo "<td><form method='POST' action='" . REMOVE_BOOKING_PAGE . "'>
                 <button type='submit' name='bookingId' value='$bookingId'>remove</button>
                 </form></td>";
